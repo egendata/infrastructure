@@ -53,6 +53,18 @@ spec:
               secretKeyRef:
                 name: apm
                 key: token
+          - name: PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PUBLIC_KEY
+                name: ci-operator-keys
+          - name: PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PRIVATE_KEY
+                name: ci-operator-keys
+          - name: HOST
+            value: 'https://operator-ci.dev.services.jtech.se'
           image: jobtechswe/mydata-operator:latest
           imagePullPolicy: Always
           name: operator-ci

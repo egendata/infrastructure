@@ -53,7 +53,19 @@ spec:
               secretKeyRef:
                 name: apm
                 key: token
-          image: jobtechswe/mydata-operator:latest-tag
+          - name: PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PUBLIC_KEY
+                name: test-operator-keys
+          - name: PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PRIVATE_KEY
+                name: test-operator-keys
+          - name: HOST
+            value: https://operator-test.dev.services.jtech.se
+          image: jobtechswe/mydata-operator:0.30.3
           imagePullPolicy: Always
           name: operator-test
           terminationMessagePath: /dev/termination-log
@@ -96,7 +108,7 @@ spec:
             value: postgres://postgresuser:postgrespassword@postgresql-legacy-operator.mydata.svc:5432/mydata
           - name: APP_NAME
             value: legacy_operator
-          image: jobtechswe/mydata-operator:latest-tag
+          image: jobtechswe/mydata-operator:0.30.3
           imagePullPolicy: Always
           name: init-legacy-operator
           command: ['npm', 'run', 'migrate', 'up']
