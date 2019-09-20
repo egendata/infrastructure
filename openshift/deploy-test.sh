@@ -58,10 +58,8 @@ fi
 echo "Deploying $deployment_name"
 
 # Update the yml file and set the new image tag
-if ! sed -i "s/^\([[:blank:]]*\)image: ${image//\//\\/}:.*$/\1image: ${image//\//\\/}:$tag/" "$config_file"; then
-  >&2 echo "Error: sed failed when updating config file, aborting"
-  exit 1
-fi
+sed -i.bak "s/^\([[:blank:]]*\)image: ${image//\//\\/}:.*$/\1image: ${image//\//\\/}:$tag/" $config_file
+rm "$config_file.bak"
 
 # oc apply -f using the updated yml file
 if ! oc apply -f "$config_file"; then
