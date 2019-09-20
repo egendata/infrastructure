@@ -93,9 +93,9 @@ spec:
       initContainers:
         - env:
           - name: NODE_ENV
-            value: production
+            value: test
           - name: PGHOST
-            value: postgresql-legacy-operator.mydata.svc
+            value: postgresql-operator-ci.mydata.svc
           - name: PGPORT
             value: '5432'
           - name: PGUSER
@@ -105,12 +105,12 @@ spec:
           - name: PGDATABASE
             value: mydata
           - name: DATABASE_URL
-            value: postgres://postgresuser:postgrespassword@postgresql-legacy-operator.mydata.svc:5432/mydata
+            value: postgres://postgresuser:postgrespassword@postgresql-operator-ci.mydata.svc:5432/mydata
           - name: APP_NAME
-            value: legacy_operator
+            value: operator_ci
           image: jobtechswe/mydata-operator:latest
           imagePullPolicy: Always
-          name: init-legacy-operator
+          name: init-operator-ci
           command: ['npm', 'run', 'migrate', 'up']
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
