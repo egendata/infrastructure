@@ -19,3 +19,4 @@ spec:
         key: jtech.se.crt
         name: tls
     termination: edge
+    insecureEdgeTerminationPolicy: Redirect
