@@ -28,7 +28,7 @@ spec:
             - name: POSTGRESQL_PASSWORD
               value: postgrespassword
             - name: POSTGRESQL_DATABASE
-              value: mydata
+              value: egendata
           image: docker-registry.default.svc:5000/openshift/postgresql@sha256:75b2d147b559487a42bf37e48867a09337e7f02ba91c8ff420be3c5a74faef9d
           imagePullPolicy: Always
           livenessProbe:

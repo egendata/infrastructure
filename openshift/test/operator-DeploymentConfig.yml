@@ -39,9 +39,9 @@ spec:
           - name: PGPASSWORD
             value: postgrespassword
           - name: PGDATABASE
-            value: mydata
+            value: egendata
           - name: DATABASE_URL
-            value: postgres://postgresuser:postgrespassword@postgresql-operator-test.mydata.svc:5432/mydata
+            value: postgres://postgresuser:postgrespassword@postgresql-operator-test.mydata.svc:5432/egendata
           - name: REDIS
             value: 'redis://:fubar@redis-test.mydata.svc:6379/'
           - name: APP_NAME
@@ -53,11 +53,6 @@ spec:
               secretKeyRef:
                 name: apm
                 key: token
-          - name: PUBLIC_KEY
-            valueFrom:
-              secretKeyRef:
-                key: PUBLIC_KEY
-                name: test-operator-keys
           - name: PRIVATE_KEY
             valueFrom:
               secretKeyRef:
@@ -103,9 +98,9 @@ spec:
           - name: PGPASSWORD
             value: postgrespassword
           - name: PGDATABASE
-            value: mydata
+            value: egendata
           - name: DATABASE_URL
-            value: postgres://postgresuser:postgrespassword@postgresql-operator-test.mydata.svc:5432/mydata
+            value: postgres://postgresuser:postgrespassword@postgresql-operator-test.mydata.svc:5432/egendata
           - name: APP_NAME
             value: operator_test
           image: jobtechswe/mydata-operator:0.30.4

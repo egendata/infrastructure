@@ -27,7 +27,7 @@ spec:
       containers:
         - env:
           - name: NODE_ENV
-            value: test
+            value: production
           - name: PORT
             value: '3000'
           - name: PGHOST
@@ -39,9 +39,9 @@ spec:
           - name: PGPASSWORD
             value: postgrespassword
           - name: PGDATABASE
-            value: mydata
+            value: egendata
           - name: DATABASE_URL
-            value: postgres://postgresuser:postgrespassword@postgresql-operator-ci.mydata.svc:5432/mydata
+            value: postgres://postgresuser:postgrespassword@postgresql-operator-ci.mydata.svc:5432/egendata
           - name: REDIS
             value: 'redis://:fubar@redis-ci.mydata.svc:6379/'
           - name: APP_NAME
@@ -53,11 +53,6 @@ spec:
               secretKeyRef:
                 name: apm
                 key: token
-          - name: PUBLIC_KEY
-            valueFrom:
-              secretKeyRef:
-                key: PUBLIC_KEY
-                name: ci-operator-keys
           - name: PRIVATE_KEY
             valueFrom:
               secretKeyRef:
@@ -103,9 +98,9 @@ spec:
           - name: PGPASSWORD
             value: postgrespassword
           - name: PGDATABASE
-            value: mydata
+            value: egendata
           - name: DATABASE_URL
-            value: postgres://postgresuser:postgrespassword@postgresql-operator-ci.mydata.svc:5432/mydata
+            value: postgres://postgresuser:postgrespassword@postgresql-operator-ci.mydata.svc:5432/egendata
           - name: APP_NAME
             value: operator_ci
           image: jobtechswe/mydata-operator:latest
