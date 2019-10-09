@@ -60,7 +60,7 @@ spec:
                 name: test-operator-keys
           - name: HOST
             value: https://operator-test.dev.services.jtech.se
-          image: jobtechswe/mydata-operator:0.30.4
+          image: jobtechswe/mydata-operator:0.31.1
           imagePullPolicy: Always
           name: operator-test
           terminationMessagePath: /dev/termination-log
@@ -103,7 +103,7 @@ spec:
             value: postgres://postgresuser:postgrespassword@postgresql-operator-test.mydata.svc:5432/egendata
           - name: APP_NAME
             value: operator_test
-          image: jobtechswe/mydata-operator:0.30.4
+          image: jobtechswe/mydata-operator:0.31.1
           imagePullPolicy: Always
           name: init-operator-test
           command: ['npm', 'run', 'migrate', 'up']
