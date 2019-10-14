@@ -33,9 +33,6 @@ openssl rsa -in /tmp/private.pem -outform PEM -pubout -out /tmp/public.key
 openssl rsa -in /tmp/private.pem -out /tmp/private.key -outform PEM
 oc create secret generic natreg --from-file=/tmp/public.key --from-file=/tmp/private.key
 rm /tmp/private.pem /tmp/private.key
-
-# Docker Hub credentials (use if you wish to push images to Docker's registry)
-oc create secret docker-registry dockerhub --docker-server=docker.io --docker-username=mydata --docker-password="mydata" --docker-email=code@egendata
 ```
 
 # Shared resources
