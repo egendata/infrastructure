@@ -35,20 +35,15 @@ oc create secret generic natreg --from-file=/tmp/public.key --from-file=/tmp/pri
 rm /tmp/private.pem /tmp/private.key
 ```
 
-# Shared resources
+# Deployments
 
-Egendata uses __PostgreSQL__ and __Redis__. Inside the `./shared` folder you will find the yaml files that describes how to deploy these.
+There are currently two environments; __CI__ and __TEST__. The yaml files describing these are found in the `./ci` and `./test` folders respectively.
 
-```bash
-# Deploy everything specified inside ./shared (ImageStreams + ephemeral databases)
-oc apply -f shared/
-```
+Egendata uses __PostgreSQL__ and __Redis__. Inside the `./ci` and `./test` folders you will find the yaml files that describes how to deploy these.
 
 **NOTE:** At the moment of writing this, the databases are __ephemeral__ and no data is persisted should you remove the deployments altogether.
 
-# Deployments
-
-There are currently two environments; __CI__ and __TEST__. The yaml files describing these are found in the `./ci` and `./test` folders respectively. Deploying or tearing down the environments are done like so:
+Deploying or tearing down the environments are done like so:
 
 ## Deploy
 
@@ -73,7 +68,7 @@ These instructions assume you have the following installed/done:
   - are on `master` branch in infrastructure repo and have the latest code
 
 Steps:
-  - Run the `deploy-test.sh` with `operator`, `cv` or `natreg` and then the tag. 
+  - Run the `deploy-test.sh` with `operator`, `cv` or `natreg` and then the tag.
 
 Example:
 ```bash
