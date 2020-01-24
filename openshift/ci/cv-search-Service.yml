@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: CI
+  name: cv-search-ci
+spec:
+  ports:
+    - name: http
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: CI
+    deploymentconfig: cv-search-ci
+  type: ClusterIP

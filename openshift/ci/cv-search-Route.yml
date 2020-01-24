@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: CI
+  name: cv-search-ci
+spec:
+  host: cv-search-ci.dev.services.jtech.se
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: cv-search-ci
+    weight: 100
+  wildcardPolicy: None
+  tls:
+    valueFrom:
+      secretKeyRef:
+        key: jtech.se.crt
+        name: tls
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
